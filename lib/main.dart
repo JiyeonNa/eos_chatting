@@ -1,22 +1,21 @@
-import 'package:eos_chatting/screens/my_home_page.dart';
+import 'package:eos_chatting/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main(){
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: "Chatting App",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: LoginSignUpScreen()//채우기
     );
   }
 }
