@@ -1,3 +1,4 @@
+import 'package:eos_chatting/chatting/chat/chat_bubble.dart';
 import 'package:eos_chatting/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LoginSignUpScreen());
+        home: ChatScreen());
+    //home: LoginSignUpScreen());
   }
 }

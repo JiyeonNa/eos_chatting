@@ -267,14 +267,46 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                       Container(
                           margin: EdgeInsets.only(top: 20),
                           child: Form(
-                              child: Column(children: [
-                            TextFormField(
-                              decoration: InputDecoration(
+                              child: SingleChildScrollView(
+                            child: Column(children: [
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    color: Palette.iconColor,
+                                  ), //prefix icon 원하는 icon 입력, color는 palette의 iconColor
+                                  hintText: 'email',
+                                  hintStyle: TextStyle(
+                                    color: Palette.iconColor,
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Palette
+                                            .textColor1), //borderside 색은 palette의 textColor1
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(
+                                            35)), //border radius는 모두 35
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Palette
+                                            .textColor1), //borderside 색은 palette의 textColor1
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(
+                                            35)), //border radius는 모두 35
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              TextFormField(
+                                  decoration: InputDecoration(
                                 prefixIcon: Icon(
-                                  Icons.email,
+                                  Icons.lock,
                                   color: Palette.iconColor,
-                                ), //prefix icon 원하는 icon 입력, color는 palette의 iconColor
-                                hintText: 'email',
+                                ),
+                                hintText: 'password',
                                 hintStyle: TextStyle(
                                   color: Palette.iconColor,
                                 ),
@@ -294,37 +326,9 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                                       Radius.circular(
                                           35)), //border radius는 모두 35
                                 ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            TextFormField(
-                                decoration: InputDecoration(
-                              prefixIcon: Icon(
-                                Icons.lock,
-                                color: Palette.iconColor,
-                              ),
-                              hintText: 'password',
-                              hintStyle: TextStyle(
-                                color: Palette.iconColor,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Palette
-                                        .textColor1), //borderside 색은 palette의 textColor1
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(35)), //border radius는 모두 35
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Palette
-                                        .textColor1), //borderside 색은 palette의 textColor1
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(35)), //border radius는 모두 35
-                              ),
-                            ))
-                          ]))),
+                              ))
+                            ]),
+                          ))),
                   ]),
                 )),
             Positioned(

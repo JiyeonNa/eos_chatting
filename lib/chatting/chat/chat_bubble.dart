@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:eos_chatting/config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,11 +22,21 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Chat screen'),
+        backgroundColor: Palette.appbarColor,
         leading: Icon(Icons.arrow_back_ios_new_rounded),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.exit_to_app_sharp,
+              color: Colors.white,
+            ),
+            onPressed: () {},
+          )
+        ],
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
-            .collection('/chats/1OFYtoWrVCdaqBzBcTvd/message')
+            .collection('chats/1OFYtoWrVCdaqBzBcTvd/message')
             .snapshots(),
         builder: (BuildContext context,
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
@@ -35,15 +47,17 @@ class _ChatScreenState extends State<ChatScreen> {
           }
           final docs = snapshot.data!.docs;
           return ListView.builder(
-              itemCount: docs.length,
-              itemBuilder: (context, index) {
-                return Container(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      docs[index]['text'],
-                      style: TextStyle(fontSize: 20.0),
-                    ));
-              });
+            itemCount: docs.length,
+            itemBuilder: (context, index) {
+              return Container(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  docs[index]['text'],
+                  style: TextStyle(fontSize: 20.0),
+                ),
+              );
+            },
+          );
         },
       ),
     );

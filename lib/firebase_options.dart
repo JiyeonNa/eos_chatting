@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '907086467658',
     projectId: 'eos-clock-10524',
     storageBucket: 'eos-clock-10524.appspot.com',
-    iosClientId: '907086467658-26eppsvel0vok9gij3hbbvldu628kp83.apps.googleusercontent.com',
+    iosClientId:
+        '907086467658-26eppsvel0vok9gij3hbbvldu628kp83.apps.googleusercontent.com',
     iosBundleId: 'com.eos.eosChatting',
   );
 }
