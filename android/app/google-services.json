@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "907086467658",
+    "project_id": "eos-clock-10524",
+    "storage_bucket": "eos-clock-10524.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907086467658:android:4a268fcc31c2c636f68cb3",
+        "android_client_info": {
+          "package_name": "com.eos.eos_chatting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907086467658-3o8kf89sq4eho1ogtvvbikq7ako150mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCedViU19oWhSrv7MaVW4EZZGkTrn4fXqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907086467658-3o8kf89sq4eho1ogtvvbikq7ako150mv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "907086467658-1bgh377rjvg4mfgfvmeqmvh9phjtjboe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eos.eosClock"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907086467658:android:904846909e30698af68cb3",
+        "android_client_info": {
+          "package_name": "com.eos.eos_clock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907086467658-3o8kf89sq4eho1ogtvvbikq7ako150mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCedViU19oWhSrv7MaVW4EZZGkTrn4fXqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907086467658-3o8kf89sq4eho1ogtvvbikq7ako150mv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "907086467658-1bgh377rjvg4mfgfvmeqmvh9phjtjboe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eos.eosClock"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
