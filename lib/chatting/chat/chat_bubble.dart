@@ -1,65 +1,56 @@
-import 'dart:math';
-
-import 'package:eos_chatting/config/palette.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ChatScreen extends StatefulWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+class ChatBubble extends StatelessWidget {
+  const ChatBubble(this.message, this.isMe, this.userName, {super.key});
 
-  @override
-  State<ChatScreen> createState() => _ChatScreenState();
-}
-
-class _ChatScreenState extends State<ChatScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  // ignore: prefer_typing_uninitialized_variables
+  final message, isMe, userName;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Chat screen'),
-        backgroundColor: Palette.appbarColor,
-        leading: Icon(Icons.arrow_back_ios_new_rounded),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.exit_to_app_sharp,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance
-            .collection('chats/1OFYtoWrVCdaqBzBcTvd/message')
-            .snapshots(),
-        builder: (BuildContext context,
-            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          final docs = snapshot.data!.docs;
-          return ListView.builder(
-            itemCount: docs.length,
-            itemBuilder: (context, index) {
-              return Container(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  docs[index]['text'],
-                  style: TextStyle(fontSize: 20.0),
+    return Row(
+      mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: [
+        Padding(
+            padding: isMe
+                ? const EdgeInsets.only(right: 5)
+                : const EdgeInsets.only(left: 5),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              if (!isMe) ...[
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  child: Text(userName,
+                      style: const TextStyle(color: Colors.grey)),
                 ),
-              );
-            },
-          );
-        },
-      ),
+              ],
+              Container(
+                decoration: BoxDecoration(
+                  color: isMe ? Colors.lightGreen : Colors.black12,
+                  borderRadius: isMe
+                      ? const BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        )
+                      : const BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          topLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                ),
+                constraints: BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.7),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                child: Text(
+                  message,
+                  style: TextStyle(color: isMe ? Colors.white : Colors.black),
+                ),
+              )
+            ]))
+      ],
     );
   }
 }
